@@ -6,21 +6,22 @@ import java.util.Scanner;
 
 public class UserApplication {
     public static void main(String[] args) {
-        UserService userService = new UserService();
-        try (Scanner scanner = new Scanner(System.in)) {
+    	UserService userService = new UserService();
+
+    		try (Scanner scanner = new Scanner(System.in)) {
 			try {
-			    User[] users = userService.loadUserFromFile("data.txt");
+			    userService.loadUserFromFile("data.txt");
 			    int attempts = 0;
 
 			    while (attempts < 5) {
 			        System.out.print("Enter username: ");
-			        String username = scanner.nextLine();
+			        scanner.nextLine();
 			        System.out.print("Enter password: ");
-			        String password = scanner.nextLine();
+			        scanner.nextLine();
 
-			        User loggedInUser = userService.readUsersFromFile(username, password, users);
+			        User[] loggedInUser = userService.readUsersFromFiled();
 			        if (loggedInUser != null) {
-			            System.out.println("Welcome " + loggedInUser.getName());
+			            System.out.println("Welcome " + loggedInUser.length);
 			            return;
 			        } else {
 			            System.out.println("Invalid login, please try again.");

@@ -2,38 +2,39 @@ package com.coderscampus.as3;
 
 public class User {
 
-	private String userName;
-	private String password;
-	private String name;
+	private static String username;
+	private static String password;
+	private static String name;
+	public static int length;
 	
 	public User(String username, String password, String name) {
-		this.userName = username;
-		this.password = password;
-		this.name = name;
+		User.username = username;
+		User.password = password;
+		User.name = name;
 	}
 	
-	public String getUsername() {
-		return userName;
+	public static String getUsername() {
+		return username;
 	}
 	
 	public void setUsername(String username) {
-		this.userName = username;
+		User.username = username;
 	}
 	
-	public String getPassword() {
+	public static String getPassword() {
 		return password;
 	}
 	
 	public void setPassword(String password) {
-		this.password = password;
+		User.password = password;
 	}
 	
-	public String getName() {
+	public static String getName() {
 		return name;
 	}
 	
 	public void setName(String name) {
-		this.name = name;
+		User.name = name;
 	}
 
 }
