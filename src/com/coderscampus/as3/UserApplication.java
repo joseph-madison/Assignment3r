@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class UserApplication {
-    public static void main(String[] args) {
+  
+
+	public static void main(String[] args) {
     	UserService userService = new UserService();
 
     		try (Scanner scanner = new Scanner(System.in)) {
@@ -19,7 +21,7 @@ public class UserApplication {
 			        System.out.print("Enter password: ");
 			        scanner.nextLine();
 
-			        User[] loggedInUser = userService.readUsersFromFiled();
+			        User[] loggedInUser = userService.loadUserFromFile("data.txt");
 			        if (loggedInUser != null) {
 			            System.out.println("Welcome " + loggedInUser.length);
 			            return;

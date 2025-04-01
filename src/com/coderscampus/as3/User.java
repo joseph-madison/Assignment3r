@@ -1,7 +1,7 @@
 package com.coderscampus.as3;
 
-public class User {
-
+public class User{
+	
 	private static String username;
 	private static String password;
 	private static String name;
@@ -29,7 +29,7 @@ public class User {
 		User.password = password;
 	}
 	
-	public static String getName() {
+	public String getName() {
 		return name;
 	}
 	
