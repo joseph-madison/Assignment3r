@@ -1,68 +1,72 @@
 package com.coderscampus.as3;
-
-import java.io.*;
-
-
 public class UserService {
-	
 
 
-	public User[] loadUserFromFile(String filePath) throws IOException {
-		User[] users = new User[4];
-		
-		try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-			while ((reader.readLine()) != null) {
-				for (int i = 0; i < User.length; i++) {
-					System.out.println("Enter User " +(i +1) + ":");
-					System.out.println("Username: " +(i+1) + ":");
-					users[i] = new User(filePath, filePath, filePath);
-				}
-			}
-		}
-			return users;
-	}
+    public User createUser(String username, String password) {
+
+        User user = new User();
+
+
+        User.setUsername(username);
+        User.setPassword(password);
+        User.setFirstName("Test");
+        User.setLastName("User");
+
+        User.setUsername(username);
+        User.setPassword(password);
+        User.setFirstName("Another");
+        User.setLastName("User");
+
+        User.setUsername(username);
+        User.setPassword(password);
+        User.setFirstName("John");
+        User.setLastName("Doe");
+
+        User.setUsername(username);
+        User.setPassword(password);
+        User.setFirstName("Jane");
+        User.setLastName("Doe");
+
+        return user;
+    }
 }
 
 
 
-			        
-			        	
-			      
-			       
-			  
-			    
-
-	
-
-	            
-		
-	
-	
-
-
-	
-
-	
-	
 
 
 
-	
-
-			
-
-	
-	
-	
-		
 
 
-		
 
-		
-	
 
-	            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

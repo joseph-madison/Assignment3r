@@ -1,45 +1,55 @@
 package com.coderscampus.as3;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class UserApplication {
-  
 
-	public static void main(String[] args) {
-    	UserService userService = new UserService();
 
-    		try (Scanner scanner = new Scanner(System.in)) {
-			try {
-			    userService.loadUserFromFile("data.txt");
-			    int attempts = 0;
-
-			    while (attempts < 5) {
-			        System.out.print("Enter username: ");
-			        scanner.nextLine();
-			        System.out.print("Enter password: ");
-			        scanner.nextLine();
-
-			        User[] loggedInUser = userService.loadUserFromFile("data.txt");
-			        if (loggedInUser != null) {
-			            System.out.println("Welcome " + loggedInUser.length);
-			            return;
-			        } else {
-			            System.out.println("Invalid login, please try again.");
-			            attempts++;
-			        }
-			    }
-			    System.out.println("Too many failed login attempts, you are now locked out.");
-			} catch (IOException e) {
-			    System.out.println("An error occurred while reading the user data: " + e.getMessage());
-			    
-			    
-			}
-			scanner.close();
-		}
-        
+    public UserApplication() throws FileNotFoundException {
     }
-    
-}
 
+    public static void main(String[] args) throws IOException {
+        UserService userService = new UserService();
+    
+        User[] users = new User[4];
+        for (int i = 0; i < 4; i++) {
+            users[i] = userService.createUser("user" + (i + 1), "password" + (i + 1));
+        }
+        System.out.println(users);
+    }
+        BufferedReader fileReader = new BufferedReader(new FileReader("data.txt"));
+
+        {
+            try {
+                fileReader = new BufferedReader(new FileReader("data.txt"));
+                {
+                }
+                new Scanner(System.in);
+                {
+                }
+                String line;
+                while ((line = fileReader.readLine()) != null) {
+                    System.out.println(line);
+                }
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } finally {
+                System.out.println("Closing file reader");
+                try {
+                    fileReader.close();
+                } catch (IOException e) {
+
+                    try {
+                        new RuntimeException(e);
+                    }finally {
+                        }
+            }
+        }
+    }
+}
